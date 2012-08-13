@@ -1,0 +1,23 @@
+<html version="5.0">
+<head>
+<title>timer</title>
+<script type="text/javascript">
+var x = 0;
+var colors = new Array("red", "green", "yellow", "blue");
+setInterval(moveElement,1000);
+
+function moveElement() {
+	x++;
+	if (x == colors.length) {
+		x = 0;
+	}
+	var left = x + "px";
+	document.getElementById("remakeme").style.color=colors[x];
+}
+</script>
+</head>
+
+<body>
+<p id="remakeme" style="color: red">This is a para</p>
+</body>
+</html>
