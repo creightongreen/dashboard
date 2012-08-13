@@ -3,21 +3,45 @@
 <title>timer</title>
 <script type="text/javascript">
 var x = 0;
-var colors = new Array("red", "green", "yellow", "blue");
-setInterval(moveElement,1000);
+var images_liedtracker = new Array("maps/map_liedtracker.jpg", "photos/LiedTurbines.jpg");
+var images_kfc = new Array("maps/map_kfc.jpg", "photos/CumingTracker.jpg");
+var images_cuming = new Array("maps/map_cuming.jpg", "photos/CumingTracker.jpg");
+var images_windspire = new Array("maps/map_windspire.jpg", "photos/LiedTurbines.jpg");
+setInterval(moveElement,5000);
 
 function moveElement() {
 	x++;
-	if (x == colors.length) {
+	if (x == images_liedtracker.length) {
 		x = 0;
 	}
 	var left = x + "px";
-	document.getElementById("remakeme").style.color=colors[x];
+	document.getElementById("image_liedtracker").src=images_liedtracker[x];
+	document.getElementById("image_kfc").src=images_kfc[x];
+	document.getElementById("image_cuming").src=images_cuming[x];
+	document.getElementById("image_windspire").src=images_windspire[x];
 }
 </script>
 </head>
 
 <body>
-<p id="remakeme" style="color: red">This is a para</p>
+<table width="960">
+<tr>
+<td>
+<img id="image_liedtracker" height="300" width="400" src="maps/map_liedtracker.jpg"/>
+</td>
+<td align="right">
+<img id="image_kfc" height="300" width="400" src="maps/map_kfc.jpg"/>
+</td>
+</tr>
+
+<tr>
+<td>
+<img id="image_cuming" height="300" width="400" src="maps/map_cuming.jpg"/>
+</td>
+<td align="right">
+<img id="image_windspire" height="300" width="400" src="maps/map_windspire.jpg"/>
+</td>
+</tr>
+</table>
 </body>
 </html>
