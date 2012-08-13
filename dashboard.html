@@ -1,6 +1,24 @@
 <html version="5.0">
 <head>
 <title>Creighton Green Energy Dashboard</title>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["imagebarchart"]}); google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+	['Day', 'Cuming Street Solar', 'Kiewit Fitness Solar', 'Lied Arts Wind', 'Lied Arts Solar'],
+	['Monday', 24, 22, 23, 19],
+	['Sunday', 22, 21, 23, 24],
+	['Saturday', 18, 17, 16, 15],
+	['Friday', 19, 18, 11, 25],
+	['Thursday', 5, 8, 9, 25]
+]);
+	var options = { title: 'Power Performance for the Last Five Days', width: 400, height: 240, min: 0, };
+	var chart = new google.visualization.ImageBarChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+	</script>
 <script type="text/javascript">
 var x = 0;
 var images_liedtracker = new Array("maps/map_liedtracker.jpg", "photos/LiedTurbines.jpg");
@@ -30,7 +48,9 @@ function moveElement() {
 <td>
 <img id="image_liedtracker" height="300" width="400" src="maps/map_liedtracker.jpg"/>
 </td>
-<td>Historical production</td>
+<td>Historical production
+<div id="chart_div"></div>
+</td>
 <td align="right">
 <img id="image_kfc" height="300" width="400" src="maps/map_kfc.jpg"/>
 </td>
