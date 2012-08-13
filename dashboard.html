@@ -1,13 +1,13 @@
 <html version="5.0">
 <head>
-<title>timer</title>
+<title>Creighton Green Energy Dashboard</title>
 <script type="text/javascript">
 var x = 0;
 var images_liedtracker = new Array("maps/map_liedtracker.jpg", "photos/LiedTurbines.jpg");
 var images_kfc = new Array("maps/map_kfc.jpg", "photos/CumingTracker.jpg");
 var images_cuming = new Array("maps/map_cuming.jpg", "photos/CumingTracker.jpg");
 var images_windspire = new Array("maps/map_windspire.jpg", "photos/LiedTurbines.jpg");
-setInterval(moveElement,5000);
+setInterval(moveElement,15000);
 
 function moveElement() {
 	x++;
@@ -24,7 +24,32 @@ function moveElement() {
 </head>
 
 <body>
-<div style="z-index:-100; position:fixed; top:70px; left:30px; width:660px; height:450px;">
+<table width="960">
+
+<tr> <!-- Row 1 -->
+<td>
+<img id="image_liedtracker" height="300" width="400" src="maps/map_liedtracker.jpg"/>
+</td>
+<td>Historical production</td>
+<td align="right">
+<img id="image_kfc" height="300" width="400" src="maps/map_kfc.jpg"/>
+</td>
+</tr>
+
+<tr> <!-- Row 2 -->
+<td>
+<img id="image_cuming" height="300" width="400" src="maps/map_cuming.jpg"/>
+</td>
+<td>Current production</td>
+<td align="right">
+<img id="image_windspire" height="300" width="400" src="maps/map_windspire.jpg"/>
+</td>
+</tr>
+
+<tr> <!-- Row 3 -->
+<td>Savings in CO2</td>
+<td>
+<div style="top:70px; left:30px; width:660px; height:450px;">
     <object type="application/x-shockwave-flash" data="http://swf.yowindow.com/yowidget3.swf" width="660" height="450">
     	<param name="movie" value="http://swf.yowindow.com/yowidget3.swf"/>
     	<param name="allowfullscreen" value="true"/>
@@ -42,23 +67,8 @@ function moveElement() {
 	<span style="float:left;"><a target="_top" href="http://yowindow.com?client=widget&amp;link=copyright" style="color: #2fa900; font-weight:bold; text-decoration:none;" title="HTML weather">YoWindow.com</a></span>
 	<span style="float:right; color:#888888;">Forecast by&nbsp;<a href="http://www.weather.gov" style="color: #2fa900; text-decoration:none;">NWS</a></span>
 </div>
-<table width="960">
-<tr>
-<td>
-<img id="image_liedtracker" height="300" width="400" src="maps/map_liedtracker.jpg"/>
 </td>
-<td align="right">
-<img id="image_kfc" height="300" width="400" src="maps/map_kfc.jpg"/>
-</td>
-</tr>
-
-<tr>
-<td>
-<img id="image_cuming" height="300" width="400" src="maps/map_cuming.jpg"/>
-</td>
-<td align="right">
-<img id="image_windspire" height="300" width="400" src="maps/map_windspire.jpg"/>
-</td>
+<td>Savings in $$$</td>
 </tr>
 </table>
 </body>

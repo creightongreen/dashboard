@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Developers</title>
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" href="//www.google.com/cse/style/look/default.css" type="text/css" />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script id="jqueryui" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js" defer async></script>
+    <script src="//www.google.com/jsapi?key=AIzaSyCZfHRnq7tigC-COeQRmoa9Cxr0vbrK6xw"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="docs framebox_body">
+
+<div id="chart_div" style="width: 400px; height: 120px;"></div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.0','packages':['gauge']}]}"></script>
+
+<script type="text/javascript">
+  function Timer(){this.t={};this.tick=function(a,b){this.t[a]=[(new Date).getTime(),b]};this.tick("start")}var loadTimer=new Timer;window.jstiming={Timer:Timer,load:loadTimer};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;if(window.jstiming)window.jstiming.report=function(g,d){var c="";if(window.jstiming.pt){c+="&srt="+window.jstiming.pt;delete window.jstiming.pt}if(window.external&&window.external.tran)c+="&tran="+window.external.tran;var a=g.t,h=a.start;delete a.start;var i=[],e=[];for(var b in a){if(b.indexOf("_")==0)continue;var f=a[b][1];if(f)a[f][0]&&e.push(b+"."+(a[b][0]-a[f][0]));else h&&i.push(b+"."+(a[b][0]-h[0]))}if(d)for(var j in d)c+="&"+j+"="+d[j];(new Image).src=["http://csi.gstatic.com/csi?v=3","&s=gviz&action=",g.name,e.length?"&it="+e.join(",")+c:c,"&rt=",i.join(",")].join("")};
+</script>
+
+<script type="text/javascript">
+
+var csi_timer = new window.jstiming.Timer();
+csi_timer.name = 'docs_gauge';
+
+google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+  csi_timer.tick('load');
+
+  var data = google.visualization.arrayToDataTable([
+    ['Label', 'Value'],
+    ['Memory', 80],
+    ['CPU', 55],
+    ['Network', 68]
+  ]);
+
+  csi_timer.tick('data');
+
+  var options = {
+    width: 400, height: 120,
+    redFrom: 90, redTo: 100,
+    yellowFrom:75, yellowTo: 90,
+    minorTicks: 5
+  };
+
+  var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+  csi_timer.tick('new');
+
+  chart.draw(data, options);
+
+  csi_timer.tick('draw');
+  window.jstiming.report(csi_timer);
+
+  setInterval(function() {
+    data.setValue(0, 1, 60 + Math.round(10 * Math.random()));
+    chart.draw(data, options);
+  }, 13000);
+  setInterval(function() {
+    data.setValue(1, 1, 60 + Math.round(10 * Math.random()));
+    chart.draw(data, options);
+  }, 5000);
+  setInterval(function() {
+    data.setValue(2, 1, 60 + Math.round(05 * Math.random()));
+    chart.draw(data, options);
+  }, 26000);
+}
+</script>
+
+</body>
+</html>
+
