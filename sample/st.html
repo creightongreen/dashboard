@@ -1,0 +1,25 @@
+<html>
+<head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["imagebarchart"]}); google.setOnLoadCallback(drawChart);
+
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+	['Day', 'Cuming Street Solar', 'Kiewit Fitness Solar', 'Lied Arts Wind', 'Lied Arts Solar'],
+	['Monday', 24, 22, 23, 19],
+	['Sunday', 22, 21, 23, 24],
+	['Saturday', 18, 17, 16, 15],
+	['Friday', 19, 18, 11, 25],
+	['Thursday', 5, 8, 9, 25]
+]);
+	var options = { title: 'Power Performance for the Last Five Days', width: 400, height: 240, min: 0, };
+	var chart = new google.visualization.ImageBarChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+	</script>
+</head>
+<body>
+	<div id="chart_div"></div>
+</body>
+</html>
