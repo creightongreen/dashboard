@@ -5,6 +5,7 @@
       google.load('visualization', '1', {packages:['gauge']});
 		// https://developers.google.com/chart/interactive/docs/gallery/gauge
       google.setOnLoadCallback(drawChart);
+		var x = 0;
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
@@ -13,7 +14,6 @@
           ['Lied Wind', 15],
           ['Lied Solar', 18]
         ]);
-
         var data2 = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           ['Cuming', 83],
@@ -30,8 +30,12 @@
         };
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-        chart.draw(data, options);
-        chart.draw(data2, options);
+			x++;
+			if ((x % 2) == 1) {
+				chart.draw(data2, options);
+			} else {
+				chart.draw(data, options);
+			}
       }
     </script>
   </head>
