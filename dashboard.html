@@ -46,7 +46,7 @@ var data = google.visualization.arrayToDataTable([
 	['Friday', 19, 18, 11, 25],
 	['Thursday', 5, 8, 9, 25]
 ]);
-	var options = { title: 'Power Performance for the Last Five Days', width: 550, height: 210, min: 0, };
+	var options = { title: 'Power Performance for the Last Five Days', width: 700, height: 300, min: 0, };
 	var chart = new google.visualization.ImageBarChart(document.getElementById('chart_div'));
 	chart.draw(data, options);
 }
@@ -88,25 +88,25 @@ function moveElement() {
 
 <tr> <!-- Row 1 -->
 <td>
-<img id="image_liedtracker" height="300" width="400" src="maps/map_liedtracker.jpg"/>
+<img id="image_liedtracker" height="337" width="450" src="maps/map_liedtracker.jpg"/>
 </td>
 <td align="center">Historical production
 <div id="chart_div"></div>
 </td>
 <td align="right">
-<img id="image_kfc" height="300" width="400" src="maps/map_kfc.jpg"/>
+<img id="image_kfc" height="337" width="450" src="maps/map_kfc.jpg"/>
 </td>
 </tr>
 
 <tr> <!-- Row 2 -->
 <td>
-<img id="image_cuming" height="300" width="400" src="maps/map_cuming.jpg"/>
+<img id="image_cuming" height="337" width="450" src="maps/map_cuming.jpg"/>
 </td>
 <td align="center">Current production
 <div id='gaugeGroup_div'></div>
 </td>
 <td align="right">
-<img id="image_windspire" height="300" width="400" src="maps/map_windspire.jpg"/>
+<img id="image_windspire" height="337" width="450" src="maps/map_windspire.jpg"/>
 </td>
 </tr>
 
