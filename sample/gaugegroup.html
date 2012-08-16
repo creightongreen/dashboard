@@ -2,44 +2,44 @@
   <head>
     <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type='text/javascript'>
-      google.load('visualization', '1', {packages:['gauge']});
-		// https://developers.google.com/chart/interactive/docs/gallery/gauge
-      google.setOnLoadCallback(drawChart);
-		setInterval(drawChart,3000);
-		var x = 0;
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['Cuming', 13],
-          ['KFC', 10],
-          ['Lied Wind', 15],
-          ['Lied Solar', 18]
-        ]);
-        var data2 = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['Cuming', 83],
-          ['KFC', 80],
-          ['Lied Wind', 85],
-          ['Lied Solar', 88]
-        ]);
-        var options = {
-          width: 400, height: 120,
-          redFrom: 90, redTo: 100,
-          yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
-        };
-        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-			x++;
-			if ((x % 2) == 1) {
-				chart.draw(data2, options);
-			} else {
-				chart.draw(data, options);
-			}
-      }
+google.load('visualization', '1', {packages:['gauge']});
+// https://developers.google.com/chart/interactive/docs/gallery/gauge
+google.setOnLoadCallback(drawGaugeGroup);
+setInterval(drawGaugeGroup,3000);
+var x = 0;
+function drawGaugeGroup() {
+  var data = google.visualization.arrayToDataTable([
+	 ['Label', 'Value'],
+	 ['Cuming', 13],
+	 ['KFC', 10],
+	 ['Lied Wind', 15],
+	 ['Lied Solar', 18]
+  ]);
+  var data2 = google.visualization.arrayToDataTable([
+	 ['Label', 'Value'],
+	 ['Cuming', 83],
+	 ['KFC', 80],
+	 ['Lied Wind', 85],
+	 ['Lied Solar', 88]
+  ]);
+  var options = {
+	 width: 400, height: 120,
+	 redFrom: 90, redTo: 100,
+	 yellowFrom:75, yellowTo: 90,
+	 minorTicks: 5
+  };
+  var gaugeGroup = new google.visualization.Gauge(document.getElementById('gaugeGroup_div'));
+	x++;
+	if ((x % 2) == 1) {
+		gaugeGroup.draw(data2, options);
+	} else {
+		gaugeGroup.draw(data, options);
+	}
+}
     </script>
   </head>
   <body>
-    <div id='chart_div'></div>
+    <div id='gaugeGroup_div'></div>
  sample gauges
   </body>
 </html>

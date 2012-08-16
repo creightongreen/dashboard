@@ -3,7 +3,39 @@
 <title>Creighton Green Energy Dashboard</title>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-google.load("visualization", "1", {packages:["imagebarchart"]}); google.setOnLoadCallback(drawChart);
+google.load("visualization", "1", {packages:["imagebarchart"]});
+google.load('visualization', '1', {packages:['gauge']});
+google.setOnLoadCallback(drawChart);
+var gauge_index = 0;
+function drawGaugeGroup() {
+  var data = google.visualization.arrayToDataTable([
+	 ['Label', 'Value'],
+	 ['Cuming', 13],
+	 ['KFC', 10],
+	 ['Lied Wind', 15],
+	 ['Lied Solar', 18]
+  ]);
+  var data2 = google.visualization.arrayToDataTable([
+	 ['Label', 'Value'],
+	 ['Cuming', 83],
+	 ['KFC', 80],
+	 ['Lied Wind', 85],
+	 ['Lied Solar', 88]
+  ]);
+  var options = {
+	 width: 400, height: 120,
+	 redFrom: 90, redTo: 100,
+	 yellowFrom:75, yellowTo: 90,
+	 minorTicks: 5
+  };
+  var gaugeGroup = new google.visualization.Gauge(document.getElementById('gaugeGroup_div'));
+	gauge_index++;
+	if ((gauge_index % 2) == 1) {
+		gaugeGroup.draw(data2, options);
+	} else {
+		gaugeGroup.draw(data, options);
+	}
+}
 
 function drawChart() {
 var data = google.visualization.arrayToDataTable([
@@ -25,7 +57,12 @@ var images_liedtracker = new Array("maps/map_liedtracker.jpg", "photos/LiedTurbi
 var images_kfc = new Array("maps/map_kfc.jpg", "photos/KFC.jpg");
 var images_cuming = new Array("maps/map_cuming.jpg", "photos/CumingLot.jpg");
 var images_windspire = new Array("maps/map_windspire.jpg", "photos/LiedTurbines.jpg");
-setInterval(moveElement,15000);
+setInterval(doStuff,15000);
+
+function doStuff() {
+	moveElement();
+	drawGaugeGroup();
+}
 
 function moveElement() {
 	x++;
@@ -65,7 +102,9 @@ function moveElement() {
 <td>
 <img id="image_cuming" height="300" width="400" src="maps/map_cuming.jpg"/>
 </td>
-<td>Current production</td>
+<td>Current production
+<div id='gaugeGroup_div'></div>
+</td>
 <td align="right">
 <img id="image_windspire" height="300" width="400" src="maps/map_windspire.jpg"/>
 </td>
