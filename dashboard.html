@@ -38,6 +38,7 @@ function drawGaugeGroup() {
 }
 
 function drawChart() {
+// See: https://developers.google.com/chart/interactive/docs/gallery/imagebarchart
 var data = google.visualization.arrayToDataTable([
 	['Day', 'Cuming Street Solar', 'Kiewit Fitness Solar', 'Lied Arts Wind', 'Lied Arts Solar'],
 	['Monday', 24, 22, 23, 19],
@@ -46,7 +47,10 @@ var data = google.visualization.arrayToDataTable([
 	['Friday', 19, 18, 11, 25],
 	['Thursday', 5, 8, 9, 25]
 ]);
-	var options = { title: 'Power Performance for the Last Five Days', width: 700, height: 300, min: 0, };
+	var options = { title: 'Power Performance for the Last Five Days', width: 700, height: 300, min: 0,
+	backgroundColor: '#007ACC',
+	colors: ['#FF0000', '#FFA500', '#FFFF00', '#00FF00']
+	};
 	var chart = new google.visualization.ImageBarChart(document.getElementById('chart_div'));
 	chart.draw(data, options);
 }
